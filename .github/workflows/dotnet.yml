@@ -23,3 +23,11 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --no-restore -p:Platform="x86"
+    - uses: actions/upload-artifact@v2
+      with:
+        name: OZEdit-Cmd-x86-debug
+        path: OZEdit/bin/x86/Debug/netcoreapp3.1
+    - uses: actions/upload-artifact@v2
+      with:
+        name: OZEdit-GUI-x86-debug
+        path: MapPublishingApp/bin/x86/Debug/netcoreapp3.1
