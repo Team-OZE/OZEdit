@@ -2,7 +2,7 @@
 
 ![App Build](https://github.com/Team-OZE/OZEdit/workflows/App%20Build/badge.svg?branch=main)
 
-OZEdit is a tool created by the OZE dev. Team to package/unpackage map files.
+OZEdit is a tool created by the OZE dev. Team to package/unpackage Warcraft III map files.
 
 There are two versions, one with a graphical interface for Windows, one which is a command line utility (currently working on Windows only).
 
