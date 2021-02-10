@@ -14,23 +14,33 @@ namespace MapPublishingApp
         ///  The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        static void Main(string[] args)
         {
-            // Add the event handler for handling UI thread exceptions to the event.
-            Application.ThreadException += new ThreadExceptionEventHandler(Program.UIThreadExceptionHandler);
+            if (args.Length > 0)
+            {
+                Console.WriteLine("First argument is input folder path, second is output mapname.w3x");
+                MapPublisher.PackMap(args[0], args[1], null);
+                return;
+            }
+            else 
+            {
+                // Add the event handler for handling UI thread exceptions to the event.
+                Application.ThreadException += new ThreadExceptionEventHandler(Program.UIThreadExceptionHandler);
 
-            // Set the unhandled exception mode to force all Windows Forms errors to go through
-            // our handler.
-            Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
+                // Set the unhandled exception mode to force all Windows Forms errors to go through
+                // our handler.
+                Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
 
-            // Add the event handler for handling non-UI thread exceptions to the event.
-            AppDomain.CurrentDomain.UnhandledException +=
-                new UnhandledExceptionEventHandler(CurrentDomain_UnhandledException);
+                // Add the event handler for handling non-UI thread exceptions to the event.
+                AppDomain.CurrentDomain.UnhandledException +=
+                    new UnhandledExceptionEventHandler(CurrentDomain_UnhandledException);
 
-            Application.SetHighDpiMode(HighDpiMode.SystemAware);
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MapPublisherForm());
+                Application.SetHighDpiMode(HighDpiMode.SystemAware);
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                Application.Run(new MapPublisherForm());
+                return;
+            }
         }
 
         // Unhandled exception handling from https://docs.microsoft.com/de-de/dotnet/api/system.windows.forms.application.setunhandledexceptionmode?view=net-5.0

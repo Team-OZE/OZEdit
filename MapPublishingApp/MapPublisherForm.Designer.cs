@@ -54,9 +54,12 @@
             this.textBoxWar3ExePath = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.openFileDialogWar3exePath = new System.Windows.Forms.OpenFileDialog();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.checkBoxRecordFunctionTimings = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -68,18 +71,21 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.textBoxUnpackMapSourcePath);
             this.groupBox1.Controls.Add(this.buttonUnpackMapSourcePath);
-            this.groupBox1.Location = new System.Drawing.Point(47, 41);
+            this.groupBox1.Location = new System.Drawing.Point(38, 33);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(446, 205);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Size = new System.Drawing.Size(357, 164);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Unpack Map";
             // 
             // buttonUnpackMap
             // 
-            this.buttonUnpackMap.Location = new System.Drawing.Point(18, 134);
+            this.buttonUnpackMap.Location = new System.Drawing.Point(14, 107);
+            this.buttonUnpackMap.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonUnpackMap.Name = "buttonUnpackMap";
-            this.buttonUnpackMap.Size = new System.Drawing.Size(403, 49);
+            this.buttonUnpackMap.Size = new System.Drawing.Size(322, 39);
             this.buttonUnpackMap.TabIndex = 3;
             this.buttonUnpackMap.Text = "Unpack";
             this.buttonUnpackMap.UseVisualStyleBackColor = true;
@@ -87,25 +93,28 @@
             // 
             // textBoxUnpackMapTargetPath
             // 
-            this.textBoxUnpackMapTargetPath.Location = new System.Drawing.Point(85, 84);
+            this.textBoxUnpackMapTargetPath.Location = new System.Drawing.Point(68, 67);
+            this.textBoxUnpackMapTargetPath.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxUnpackMapTargetPath.Name = "textBoxUnpackMapTargetPath";
-            this.textBoxUnpackMapTargetPath.Size = new System.Drawing.Size(296, 31);
+            this.textBoxUnpackMapTargetPath.Size = new System.Drawing.Size(238, 27);
             this.textBoxUnpackMapTargetPath.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 87);
+            this.label2.Location = new System.Drawing.Point(10, 70);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 25);
+            this.label2.Size = new System.Drawing.Size(50, 20);
             this.label2.TabIndex = 2;
             this.label2.Text = "Target";
             // 
             // buttonUnpackMapTargetPath
             // 
-            this.buttonUnpackMapTargetPath.Location = new System.Drawing.Point(387, 82);
+            this.buttonUnpackMapTargetPath.Location = new System.Drawing.Point(310, 66);
+            this.buttonUnpackMapTargetPath.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonUnpackMapTargetPath.Name = "buttonUnpackMapTargetPath";
-            this.buttonUnpackMapTargetPath.Size = new System.Drawing.Size(35, 34);
+            this.buttonUnpackMapTargetPath.Size = new System.Drawing.Size(28, 27);
             this.buttonUnpackMapTargetPath.TabIndex = 0;
             this.buttonUnpackMapTargetPath.Text = "...";
             this.buttonUnpackMapTargetPath.UseVisualStyleBackColor = true;
@@ -114,24 +123,27 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 33);
+            this.label1.Location = new System.Drawing.Point(10, 26);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 25);
+            this.label1.Size = new System.Drawing.Size(54, 20);
             this.label1.TabIndex = 2;
             this.label1.Text = "Source";
             // 
             // textBoxUnpackMapSourcePath
             // 
-            this.textBoxUnpackMapSourcePath.Location = new System.Drawing.Point(85, 30);
+            this.textBoxUnpackMapSourcePath.Location = new System.Drawing.Point(68, 24);
+            this.textBoxUnpackMapSourcePath.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxUnpackMapSourcePath.Name = "textBoxUnpackMapSourcePath";
-            this.textBoxUnpackMapSourcePath.Size = new System.Drawing.Size(296, 31);
+            this.textBoxUnpackMapSourcePath.Size = new System.Drawing.Size(238, 27);
             this.textBoxUnpackMapSourcePath.TabIndex = 1;
             // 
             // buttonUnpackMapSourcePath
             // 
-            this.buttonUnpackMapSourcePath.Location = new System.Drawing.Point(387, 28);
+            this.buttonUnpackMapSourcePath.Location = new System.Drawing.Point(310, 22);
+            this.buttonUnpackMapSourcePath.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonUnpackMapSourcePath.Name = "buttonUnpackMapSourcePath";
-            this.buttonUnpackMapSourcePath.Size = new System.Drawing.Size(35, 34);
+            this.buttonUnpackMapSourcePath.Size = new System.Drawing.Size(28, 27);
             this.buttonUnpackMapSourcePath.TabIndex = 0;
             this.buttonUnpackMapSourcePath.Text = "...";
             this.buttonUnpackMapSourcePath.UseVisualStyleBackColor = true;
@@ -147,18 +159,21 @@
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.buttonPackMapTargetPath);
-            this.groupBox2.Location = new System.Drawing.Point(554, 41);
+            this.groupBox2.Location = new System.Drawing.Point(443, 33);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(446, 265);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Size = new System.Drawing.Size(357, 164);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Pack Map";
             // 
             // buttonPlayTestMap
             // 
-            this.buttonPlayTestMap.Location = new System.Drawing.Point(232, 134);
+            this.buttonPlayTestMap.Location = new System.Drawing.Point(186, 107);
+            this.buttonPlayTestMap.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonPlayTestMap.Name = "buttonPlayTestMap";
-            this.buttonPlayTestMap.Size = new System.Drawing.Size(199, 49);
+            this.buttonPlayTestMap.Size = new System.Drawing.Size(159, 39);
             this.buttonPlayTestMap.TabIndex = 4;
             this.buttonPlayTestMap.Text = "Test Map";
             this.buttonPlayTestMap.UseVisualStyleBackColor = true;
@@ -166,9 +181,10 @@
             // 
             // buttonPackMap
             // 
-            this.buttonPackMap.Location = new System.Drawing.Point(22, 134);
+            this.buttonPackMap.Location = new System.Drawing.Point(18, 107);
+            this.buttonPackMap.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonPackMap.Name = "buttonPackMap";
-            this.buttonPackMap.Size = new System.Drawing.Size(204, 50);
+            this.buttonPackMap.Size = new System.Drawing.Size(163, 40);
             this.buttonPackMap.TabIndex = 3;
             this.buttonPackMap.Text = "Pack";
             this.buttonPackMap.UseVisualStyleBackColor = true;
@@ -176,9 +192,10 @@
             // 
             // buttonPackMapSourcePath
             // 
-            this.buttonPackMapSourcePath.Location = new System.Drawing.Point(396, 31);
+            this.buttonPackMapSourcePath.Location = new System.Drawing.Point(317, 25);
+            this.buttonPackMapSourcePath.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonPackMapSourcePath.Name = "buttonPackMapSourcePath";
-            this.buttonPackMapSourcePath.Size = new System.Drawing.Size(35, 34);
+            this.buttonPackMapSourcePath.Size = new System.Drawing.Size(28, 27);
             this.buttonPackMapSourcePath.TabIndex = 0;
             this.buttonPackMapSourcePath.Text = "...";
             this.buttonPackMapSourcePath.UseVisualStyleBackColor = true;
@@ -186,41 +203,46 @@
             // 
             // textBoxPackMapSourcePath
             // 
-            this.textBoxPackMapSourcePath.Location = new System.Drawing.Point(94, 33);
+            this.textBoxPackMapSourcePath.Location = new System.Drawing.Point(75, 26);
+            this.textBoxPackMapSourcePath.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxPackMapSourcePath.Name = "textBoxPackMapSourcePath";
-            this.textBoxPackMapSourcePath.Size = new System.Drawing.Size(296, 31);
+            this.textBoxPackMapSourcePath.Size = new System.Drawing.Size(238, 27);
             this.textBoxPackMapSourcePath.TabIndex = 1;
             // 
             // textBoxPackMapTargetPath
             // 
-            this.textBoxPackMapTargetPath.Location = new System.Drawing.Point(94, 87);
+            this.textBoxPackMapTargetPath.Location = new System.Drawing.Point(75, 70);
+            this.textBoxPackMapTargetPath.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxPackMapTargetPath.Name = "textBoxPackMapTargetPath";
-            this.textBoxPackMapTargetPath.Size = new System.Drawing.Size(296, 31);
+            this.textBoxPackMapTargetPath.Size = new System.Drawing.Size(238, 27);
             this.textBoxPackMapTargetPath.TabIndex = 1;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(22, 36);
+            this.label4.Location = new System.Drawing.Point(18, 29);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(66, 25);
+            this.label4.Size = new System.Drawing.Size(54, 20);
             this.label4.TabIndex = 2;
             this.label4.Text = "Source";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(22, 90);
+            this.label3.Location = new System.Drawing.Point(18, 72);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 25);
+            this.label3.Size = new System.Drawing.Size(50, 20);
             this.label3.TabIndex = 2;
             this.label3.Text = "Target";
             // 
             // buttonPackMapTargetPath
             // 
-            this.buttonPackMapTargetPath.Location = new System.Drawing.Point(396, 85);
+            this.buttonPackMapTargetPath.Location = new System.Drawing.Point(317, 68);
+            this.buttonPackMapTargetPath.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonPackMapTargetPath.Name = "buttonPackMapTargetPath";
-            this.buttonPackMapTargetPath.Size = new System.Drawing.Size(35, 34);
+            this.buttonPackMapTargetPath.Size = new System.Drawing.Size(28, 27);
             this.buttonPackMapTargetPath.TabIndex = 0;
             this.buttonPackMapTargetPath.Text = "...";
             this.buttonPackMapTargetPath.UseVisualStyleBackColor = true;
@@ -240,18 +262,21 @@
             this.groupBox3.Controls.Add(this.buttonWar3exePath);
             this.groupBox3.Controls.Add(this.textBoxWar3ExePath);
             this.groupBox3.Controls.Add(this.label5);
-            this.groupBox3.Location = new System.Drawing.Point(47, 524);
+            this.groupBox3.Location = new System.Drawing.Point(38, 419);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(843, 150);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Size = new System.Drawing.Size(674, 120);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Warcraft III config";
             // 
             // buttonWar3exePath
             // 
-            this.buttonWar3exePath.Location = new System.Drawing.Point(529, 46);
+            this.buttonWar3exePath.Location = new System.Drawing.Point(423, 37);
+            this.buttonWar3exePath.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonWar3exePath.Name = "buttonWar3exePath";
-            this.buttonWar3exePath.Size = new System.Drawing.Size(37, 34);
+            this.buttonWar3exePath.Size = new System.Drawing.Size(30, 27);
             this.buttonWar3exePath.TabIndex = 2;
             this.buttonWar3exePath.Text = "...";
             this.buttonWar3exePath.UseVisualStyleBackColor = true;
@@ -259,17 +284,19 @@
             // 
             // textBoxWar3ExePath
             // 
-            this.textBoxWar3ExePath.Location = new System.Drawing.Point(152, 48);
+            this.textBoxWar3ExePath.Location = new System.Drawing.Point(122, 38);
+            this.textBoxWar3ExePath.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxWar3ExePath.Name = "textBoxWar3ExePath";
-            this.textBoxWar3ExePath.Size = new System.Drawing.Size(362, 31);
+            this.textBoxWar3ExePath.Size = new System.Drawing.Size(290, 27);
             this.textBoxWar3ExePath.TabIndex = 1;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(18, 48);
+            this.label5.Location = new System.Drawing.Point(14, 38);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(128, 25);
+            this.label5.Size = new System.Drawing.Size(107, 20);
             this.label5.TabIndex = 0;
             this.label5.Text = "Warcraft III.exe";
             // 
@@ -278,14 +305,36 @@
             this.openFileDialogWar3exePath.FileName = "openFileDialog1";
             this.openFileDialogWar3exePath.Filter = "Warcraft III client|Warcraft III.exe";
             // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.checkBoxRecordFunctionTimings);
+            this.groupBox4.Location = new System.Drawing.Point(38, 203);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(762, 191);
+            this.groupBox4.TabIndex = 2;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Post processing";
+            // 
+            // checkBoxRecordFunctionTimings
+            // 
+            this.checkBoxRecordFunctionTimings.AutoSize = true;
+            this.checkBoxRecordFunctionTimings.Location = new System.Drawing.Point(14, 27);
+            this.checkBoxRecordFunctionTimings.Name = "checkBoxRecordFunctionTimings";
+            this.checkBoxRecordFunctionTimings.Size = new System.Drawing.Size(189, 24);
+            this.checkBoxRecordFunctionTimings.TabIndex = 0;
+            this.checkBoxRecordFunctionTimings.Text = "Record function timings";
+            this.checkBoxRecordFunctionTimings.UseVisualStyleBackColor = true;
+            // 
             // MapPublisherForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1031, 735);
+            this.ClientSize = new System.Drawing.Size(825, 588);
+            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "MapPublisherForm";
             this.Text = "Map Publisher";
             this.groupBox1.ResumeLayout(false);
@@ -294,6 +343,8 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -326,6 +377,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.OpenFileDialog openFileDialogWar3exePath;
         private System.Windows.Forms.Button buttonPlayTestMap;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.CheckBox checkBoxRecordFunctionTimings;
     }
 }
 

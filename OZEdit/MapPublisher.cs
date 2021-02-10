@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace MapPublishingApp
+namespace OZEdit
 {
     class MapPublisher
     {
@@ -13,8 +13,13 @@ namespace MapPublishingApp
         private const string MPQ_LISTFILE = "(listfile)";
         private const string DUMMY_FILENAME = "OZE_Container";
 
-        public static void PackMap(string inputFolderPath, string outputMapPath)
+        public static void PackMap(string inputFolderPath, string outputMapPath, List<OZEdit.PostProcessing.IPostProcessor> postProcessors)
         {
+            if (postProcessors == null)
+            {
+                postProcessors = new List<PostProcessing.IPostProcessor>();
+            }    
+
             if (!Directory.Exists(inputFolderPath))
             {
                 throw new FileNotFoundException(String.Format("Input folder at {0} does not exist.", inputFolderPath));
@@ -56,7 +61,19 @@ namespace MapPublishingApp
 
                     files.Add(relativePath);
 
-                    archive.AddFileFromDiskEx(file, relativePath, MpqFileAddFileExFlags.MPQ_FILE_COMPRESS | MpqFileAddFileExFlags.MPQ_FILE_REPLACEEXISTING, MpqFileAddFileExCompression.MPQ_COMPRESSION_BZIP2, MpqFileAddFileExCompression.MPQ_COMPRESSION_NEXT_SAME);
+                    using (var tempFileStream = new StreamWriter(new FileStream(Path.GetTempFileName(), FileMode.Open, FileAccess.ReadWrite, FileShare.None, 4096, FileOptions.DeleteOnClose)))
+                    {
+                        StringBuilder sb = new StringBuilder(File.ReadAllText(file));
+                        // Execute preprocessors
+                        foreach (var postprocessor in postProcessors)
+                        {
+                            postprocessor.Process(relativePath, ref sb);
+                        }
+
+                        tempFileStream.Write(sb);
+
+                        archive.AddFileFromDiskEx(((FileStream)tempFileStream.BaseStream).Name, relativePath, MpqFileAddFileExFlags.MPQ_FILE_COMPRESS | MpqFileAddFileExFlags.MPQ_FILE_REPLACEEXISTING, MpqFileAddFileExCompression.MPQ_COMPRESSION_BZIP2, MpqFileAddFileExCompression.MPQ_COMPRESSION_NEXT_SAME);
+                    }
                 }
 
                 archive.RemoveFile(DUMMY_FILENAME);
