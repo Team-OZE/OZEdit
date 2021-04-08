@@ -72,7 +72,12 @@ namespace MapPublishingApp
             string inputFolderPath = textBoxPackMapSourcePath.Text;
             string outputMapPath = textBoxPackMapTargetPath.Text;
 
-            MapPublisher.PackMap(inputFolderPath, outputMapPath);
+            var postProcessors = new List<PostProcessing.IPostProcessor>();
+
+            if (checkBoxRecordFunctionTimings.Checked)
+                postProcessors.Add(new PostProcessing.FunctionTimings());
+
+            MapPublisher.PackMap(inputFolderPath, outputMapPath, postProcessors);
         }
 
         private void buttonWar3exePath_Click(object sender, EventArgs e)

@@ -12,9 +12,19 @@ namespace MapPublishingApp
         private const string FILENAME_CONTAINER = "container.w3x";
         private const string MPQ_LISTFILE = "(listfile)";
         private const string DUMMY_FILENAME = "OZE_Container";
-
-        public static void PackMap(string inputFolderPath, string outputMapPath)
+        private static readonly HashSet<string> POSTPROCESSABLE_EXTENSIONS = new HashSet<string>()
         {
+            ".j",
+            ".slk"
+        };
+
+        public static void PackMap(string inputFolderPath, string outputMapPath, List<MapPublishingApp.PostProcessing.IPostProcessor> postProcessors)
+        {
+            if (postProcessors == null)
+            {
+                postProcessors = new List<PostProcessing.IPostProcessor>();
+            }
+
             if (!Directory.Exists(inputFolderPath))
             {
                 throw new FileNotFoundException(String.Format("Input folder at {0} does not exist.", inputFolderPath));
@@ -25,7 +35,7 @@ namespace MapPublishingApp
             {
                 throw new InvalidDataException("The input container does not exist. Are you sure you're pointing to a directory which has been unpacked using this tool?");
             }
-            
+
             if (File.Exists(outputMapPath))
             {
                 // TODO: Add argument to allow overwriting.
@@ -56,7 +66,29 @@ namespace MapPublishingApp
 
                     files.Add(relativePath);
 
-                    archive.AddFileFromDiskEx(file, relativePath, MpqFileAddFileExFlags.MPQ_FILE_COMPRESS | MpqFileAddFileExFlags.MPQ_FILE_REPLACEEXISTING, MpqFileAddFileExCompression.MPQ_COMPRESSION_BZIP2, MpqFileAddFileExCompression.MPQ_COMPRESSION_NEXT_SAME);
+                    // Binary files can not be properly processed by the StreamWriter - it will modify them. Thus, only process text files
+                    if (POSTPROCESSABLE_EXTENSIONS.Contains(Path.GetExtension(file)))
+                    {
+                        var tempFilePath = Path.GetTempFileName();
+                        using (var tempFileStream = new StreamWriter(new FileStream(tempFilePath, FileMode.Open, FileAccess.ReadWrite, FileShare.Read, 4096)))
+                        {
+                            StringBuilder sb = new StringBuilder(File.ReadAllText(file));
+                            // Execute preprocessors
+                            foreach (var postprocessor in postProcessors)
+                            {
+                                postprocessor.Process(relativePath, ref sb);
+                            }
+
+                            tempFileStream.Write(sb);
+                        }
+                        archive.AddFileFromDiskEx(tempFilePath, relativePath, MpqFileAddFileExFlags.MPQ_FILE_COMPRESS | MpqFileAddFileExFlags.MPQ_FILE_REPLACEEXISTING, MpqFileAddFileExCompression.MPQ_COMPRESSION_BZIP2, MpqFileAddFileExCompression.MPQ_COMPRESSION_NEXT_SAME);
+                        File.Delete(tempFilePath);
+                    }
+                    else
+                    {
+                        archive.AddFileFromDiskEx(file, relativePath, MpqFileAddFileExFlags.MPQ_FILE_COMPRESS | MpqFileAddFileExFlags.MPQ_FILE_REPLACEEXISTING, MpqFileAddFileExCompression.MPQ_COMPRESSION_BZIP2, MpqFileAddFileExCompression.MPQ_COMPRESSION_NEXT_SAME);
+                    }
+
                 }
 
                 archive.RemoveFile(DUMMY_FILENAME);
